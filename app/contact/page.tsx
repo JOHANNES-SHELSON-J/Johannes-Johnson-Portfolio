@@ -3,12 +3,17 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const LINKEDIN_URL = "https://linkedin.com/in/johannes-johnson-882636257/";
+const LINKEDIN_URL =
+  "https://linkedin.com/in/johannes-johnson-882636257/";
+const GITHUB_URL = "https://github.com/JOHANNES-SHELSON-J";
+
+// ✅ Make sure this EXACT filename exists in: /public/resume/
+const RESUME_URL = "/resume/johannes-johnson-data-analyst.pdf";
 
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);
 
-  const email = "johannes.shelson12@gmail.com"; // Email Address
+  const email = "johannes.shelson12@gmail.com";
 
   async function copyEmail() {
     try {
@@ -78,18 +83,23 @@ export default function ContactPage() {
             </button>
           </div>
 
-          {/* GitHub (placeholder) */}
-          <div
+          {/* GitHub */}
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noreferrer"
             className="rounded-2xl p-6 bg-white/5 border border-white/10
-                       opacity-80"
+                       hover:bg-white/10 hover:border-blue-400/40
+                       hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.35)]
+                       transition"
           >
             <div className="text-sm text-gray-400">Code</div>
             <div className="mt-2 text-lg font-semibold">GitHub</div>
             <p className="text-gray-400 mt-2 text-sm">
-              We’ll add this after you push the code to GitHub.
+              Repositories, portfolio source code, and projects.
             </p>
-            <div className="mt-5 text-sm text-gray-500">Coming soon</div>
-          </div>
+            <div className="mt-5 text-sm text-blue-300">Open GitHub →</div>
+          </a>
         </div>
 
         {/* Resume */}
@@ -98,18 +108,33 @@ export default function ContactPage() {
             <div>
               <div className="text-lg font-semibold">Resume</div>
               <p className="text-gray-400 mt-1 text-sm">
-                We’ll add a downloadable PDF button here once you upload it into
-                the project.
+                Download my latest resume (PDF).
+              </p>
+              <p className="text-gray-500 mt-1 text-xs">
+                File path: <span className="text-gray-400">{RESUME_URL}</span>
               </p>
             </div>
 
-            <button
-              className="rounded-xl px-5 py-3 border border-white/15 text-white
-                         hover:border-blue-400 hover:text-blue-300 transition"
-              type="button"
+            <a
+              href={RESUME_URL}
+              download
+              className="inline-flex items-center justify-center gap-2
+                         rounded-xl px-5 py-3 bg-blue-500 text-black font-semibold
+                         hover:bg-blue-400 transition"
+              aria-label="Download Resume PDF"
             >
-              Download Resume (soon)
-            </button>
+              Download Resume
+              {/* Download Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path d="M12 16l4-5h-3V4h-2v7H8l4 5z" />
+                <path d="M4 18h16v2H4z" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
