@@ -62,14 +62,13 @@ function ExperienceItem({
 function DownloadResumeButton() {
   return (
     <a
-      href="/resume/Johannes_Johnson_Resume.pdf"
+      href="/resume/johannes-johnson-data-analyst.pdf"
       download
       className="inline-flex items-center gap-2 rounded-xl px-5 py-3
                  bg-blue-500 text-black font-semibold hover:bg-blue-400 transition"
       aria-label="Download Resume"
     >
       Download Resume
-      {/* Download Icon */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
